@@ -10,6 +10,7 @@ module.exports = {
 				accent: '#fb144a',
 				light: '#f1e9ff',
 				purple: '#7001e0',
+				background: '#030014'
 			},
 		},
 	},
