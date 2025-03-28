@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { testerExperienceDTO, transformToDTO } from '../app/constants/testerExperienceDTO';
+import { setDTO } from '../store/globalSlice';
+import { useDispatch } from 'react-redux';
 
 const useCellData = (endpoint) => {
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-
+	const dispatch = useDispatch();
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -22,11 +24,11 @@ const useCellData = (endpoint) => {
 
 				const result = await response.json();
 
-				// Transform the response into a DTO
+				// format the response into a DTO
 				const dto = testerExperienceDTO(result);
-				console.log('🚀 ~ fetchData ~ dto:', dto);
 
 				setData(dto);
+				dispatch(setDTO(dto));
 			} catch (err) {
 				if (err instanceof Error) {
 					setError({ message: err.message });

@@ -46,6 +46,7 @@
     "react-native-web": "~0.19.13",
     "react-native-webview": "^13.12.5",
     "react-redux": "^9.2.0",
+    "reactotron-react-native": "^5.1.12",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {

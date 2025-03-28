@@ -1,5 +1,18 @@
 export const webViewScript = `
-    document.addEventListener('click', function(event) {
+  // Disable autoplay for videos
+  const videos = document.querySelectorAll('video');
+  videos.forEach(video => {
+      video.autoplay = false;
+      video.pause();
+  });
+  // Disable autoplay for audios
+  const audios = document.querySelectorAll('audio');
+    audios.forEach(audio => {
+        audio.autoplay = false;
+        audio.pause();
+  });
+
+  document.addEventListener('click', function(event) {
     const { tagName, id, className, innerHTML, outerHTML } = event.target;
     const x = event.clientX;
     const y = event.clientY;
